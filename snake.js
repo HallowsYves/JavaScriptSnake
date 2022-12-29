@@ -9,13 +9,11 @@ var context;
 // sneak
 var snakeX = blockSize * 5;
 var snakeY = blockSize * 5;
-
 var velocityX = 0;
 var velocityY = 0;
-
 var snakeBody = [];
-
 var gameOver = false;
+
 
 window.onload = function() {
     board = document.getElementById("board");
@@ -42,6 +40,7 @@ function update () {
     if (snakeX == appleX && snakeY == appleY) {
         snakeBody.push([appleX, appleY]);
         placeApple();
+
     }
     
     for (let i = snakeBody.length-1; i > 0; i--) {
@@ -58,7 +57,6 @@ function update () {
     for (let i = 0; i < snakeBody.length; i++) {
         context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
     }
-
 
     if (snakeX < 0 || snakeX > cols*blockSize || snakeY < 0 || snakeY >rows*blockSize) {
         gameOver = true;
