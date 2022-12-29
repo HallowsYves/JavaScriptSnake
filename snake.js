@@ -5,3 +5,30 @@ var rows = 20;
 var cols = 20;
 var board;
 var context;
+
+// sneak
+var snakeX = blockSize * 5;
+var snakeY = blockSize * 5;
+
+// comida
+var appleX = blockSize * 10;
+var appleY = blockSize * 10;
+
+window.onload = function() {
+    board = document.getElementById("board");
+    board.height = rows * blockSize;
+    board.width = cols * blockSize;
+    context = board.getContext("2d");
+    update();
+}
+
+function update () {
+    context.fillStyle = "black";
+    context.fillRect(0, 0, board.width, board.height);
+
+    context.fillStyle = "lime";
+    context.fillRect(snakeX, snakeY, blockSize, blockSize);
+
+    context.fillStyle = "red";
+    context.fillRect(appleX, appleY, blockSize, blockSize);
+}
